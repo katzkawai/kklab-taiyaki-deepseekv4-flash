@@ -40,6 +40,17 @@ https://katzkawai.github.io/kklab-taiyaki-deepseekv4-flash/
 
 このレポジトリをフォークして改造してみてください。
 
+## ローカルでの確認方法
+
+```bash
+# 方法1: Python の簡易サーバーを使う
+python3 -m http.server 8000
+# → http://localhost:8000 で表示
+
+# 方法2: ブラウザで直接開く
+open index.html
+```
+
 ## 更新履歴
 
 | 日付 | 内容 |
