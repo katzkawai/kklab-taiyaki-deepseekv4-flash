@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>名古屋たい焼き 金鯱堂 | Nagoya Taiyaki Kinshachido</title>
+  <style>
+    :root {
+      --brown: #5D3A1A;
+      --gold: #DAA520;
+      --dark: #2C1810;
+      --light: #FFF8F0;
+      --accent: #C0392B;
+      --red: #B22222;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1200') center/cover no-repeat;
+      height: 100vh; min-height: 480px;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; color: #fff; padding: 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      letter-spacing: 0.08em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      margin-top: 1rem; opacity: 0.9;
+    }
+    nav {
+      position: fixed; top: 0; width: 100%;
+      background: rgba(44,24,16,0.85); backdrop-filter: blur(8px);
+      padding: 0.8rem 2rem; z-index: 100;
+      display: flex; justify-content: center; gap: 2rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff; text-decoration: none; font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold); }
+    section { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; }
+    h2 {
+      font-size: 2rem; margin-bottom: 2rem; position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: ''; position: absolute; bottom: -6px; left: 0;
+      width: 60%; height: 3px; background: var(--gold);
+    }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; align-items: center;
+    }
+    .about-grid img {
+      width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; }
+    .feature-card {
+      background: #fff; border-radius: 12px; padding: 1.8rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align: center;
+      transition: transform 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-4px); }
+    .feature-card .icon { font-size: 2.8rem; margin-bottom: 0.6rem; }
+    .feature-card h3 { color: var(--brown); margin-bottom: 0.5rem; }
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap: 1.2rem;
+    }
+    .menu-item {
+      background: #fff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align: center;
+      transition: transform 0.2s;
+    }
+    .menu-item:hover { transform: translateY(-4px); }
+    .menu-item img {
+      width: 100%; height: 160px; object-fit: cover;
+    }
+    .menu-item .info { padding: 0.8rem 0.6rem; }
+    .menu-item h4 { color: var(--brown); font-size: 0.95rem; }
+    .menu-item .desc { font-size: 0.8rem; color: #666; margin-top: 0.2rem; }
+    .menu-item .price { color: var(--accent); font-weight: bold; margin-top: 0.3rem; font-size: 0.95rem; }
+    .map-container {
+      border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+    }
+    .map-container iframe { width: 100%; height: 360px; border: 0; display: block; }
+    .kinshachi-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 0.3rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    footer {
+      background: var(--dark); color: #aaa; text-align: center;
+      padding: 3rem 2rem; font-size: 0.85rem;
+    }
+    footer strong { color: #fff; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">金鯱堂とは</a>
+    <a href="#features">こだわり</a>
+    <a href="#menu">メニュー</a>
+    <a href="#access">アクセス</a>
+  </nav>
+
+  <header class="hero">
+    <h1>名古屋たい焼き <span>金鯱堂</span></h1>
+    <p>大須の路地で、金鯱のように輝く一尾 — 名古屋が誇る手焼きたい焼き</p>
+    <div class="kinshachi-badge">創業30周年</div>
+  </header>
+
+  <section id="about">
+    <h2>金鯱堂とは</h2>
+    <div class="about-grid">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600" alt="金鯱堂の店構え" loading="lazy">
+      <div>
+        <p>名古屋・大須商店街の一角に構える「金鯱堂」は、創業から30年にわたり地元で愛され続ける手焼きたい焼き専門店です。</p>
+        <p style="margin-top:1rem;">店名は名古屋城の金鯱に由来。「金色に輝く鯱のように、一尾一尾を大切に焼き上げたい」という初代の想いが込められています。小麦粉の香ばしい香りが漂う路地で、今日も職人が心を込めて焼き上げています。</p>
+        <p style="margin-top:1rem;">伝統のつぶあんから創作フレーバーまで10種類以上の豊富な品揃え。名古屋ならではの小倉あんたい焼きもぜひご賞味ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>3つのこだわり</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">🏯</div>
+        <h3>大須の老舗</h3>
+        <p>大須商店街で30年。観光客から地元の人々まで、誰もが気軽に立ち寄れるたい焼き屋として親しまれています。</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔥</div>
+        <h3>一尾一尾手焼き</h3>
+        <p>注文を受けてから丁寧に焼き上げる昔ながらの手焼き製法。皮はパリッと、中はふんわりとした食感が自慢です。</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🫘</div>
+        <h3>創作あん10種</h3>
+        <p>北海道産小豆の定番あんから、抹茶・チーズ・季節限定まで。名古屋ならではの小倉あんたい焼きも人気。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2>メニュー</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400" alt="つぶあん" loading="lazy">
+        <div class="info">
+          <h4>つぶあん</h4>
+          <div class="desc">北海道産小豆を炊き上げた粒あん</div>
+          <div class="price">¥250</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400" alt="こしあん" loading="lazy">
+        <div class="info">
+          <h4>こしあん</h4>
+          <div class="desc">なめらかで上品な甘さの漉し餡</div>
+          <div class="price">¥250</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400" alt="カスタード" loading="lazy">
+        <div class="info">
+          <h4>カスタード</h4>
+          <div class="desc">バニラ香るなめらかカスタード</div>
+          <div class="price">¥280</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400" alt="抹茶あん" loading="lazy">
+        <div class="info">
+          <h4>抹茶あん</h4>
+          <div class="desc">西尾産抹茶を使用した和風スイーツ</div>
+          <div class="price">¥300</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400" alt="チョコレート" loading="lazy">
+        <div class="info">
+          <h4>チョコレート</h4>
+          <div class="desc">濃厚 Belgian チョコレート</div>
+          <div class="price">¥280</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400" alt="さつまいも" loading="lazy">
+        <div class="info">
+          <h4>さつまいも</h4>
+          <div class="desc">鳴門金時の甘煮を包み込み</div>
+          <div class="price">¥270</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400" alt="白あん" loading="lazy">
+        <div class="info">
+          <h4>白あん</h4>
+          <div class="desc">手亡豆の上品な白餡</div>
+          <div class="price">¥260</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400" alt="小倉あん" loading="lazy">
+        <div class="info">
+          <h4>小倉あん</h4>
+          <div class="desc">名古屋定番！小倉トースト風味</div>
+          <div class="price">¥260</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400" alt="もちもちチーズ" loading="lazy">
+        <div class="info">
+          <h4>もちもちチーズ</h4>
+          <div class="desc">餅生地×モッツァレラの新感覚</div>
+          <div class="price">¥300</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400" alt="季節限定" loading="lazy">
+        <div class="info">
+          <h4>季節限定</h4>
+          <div class="desc">桜あん・栗あん・紫芋など月替り</div>
+          <div class="price">¥320</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="access">
+    <h2>アクセス</h2>
+    <p style="margin-bottom:1rem;">愛知県名古屋市中区大須3丁目 — 大須商店街のアーケード内、白いのれんが目印です。</p>
+    <div style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:1.5rem; font-size:0.95rem;">
+      <div><strong>営業時間</strong><br>平日 10:00〜19:00<br>土日祝 9:00〜20:00</div>
+      <div><strong>定休日</strong><br>毎週火曜日</div>
+      <div><strong>アクセス</strong><br>地下鉄名城線「大須観音」駅より徒歩3分</div>
+    </div>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.1304983207693!2d136.901398315242!3d35.16102348031889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60037ac8c74d4b6d%3A0x5f1a2f7f8b7e9c0!2z5aSn6ZyY6K2w5bqX!5e0!3m2!1sja!2sjp!4v1680000000000"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 <strong>名古屋たい焼き 金鯱堂</strong> | This is a demonstration site generated by OpenCode + DeepSeek V4 Flash</p>
+  </footer>
+
+</body>
+</html>
