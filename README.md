@@ -38,6 +38,8 @@ README.md   … このファイル
 
 https://katzkawai.github.io/kklab-taiyaki-deepseekv4-flash/
 
+このレポジトリをフォークして改造してみてください。
+
 ## 更新履歴
 
 | 日付 | 内容 |
